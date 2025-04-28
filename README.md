@@ -23,5 +23,14 @@ pathways        <- file.choose()           # Opens a dialogue to choose which re
 outfolder       <- "./"                    # Folder path in which to save your results
 
 
+ rnaseq.counts file:
+
+This should be a csv file that contains your gene symbols in the first column, and rows as expression data (raw count data). The first column has to be named 'gene_id'! All the genes have to be unique (quick_gsea.R does not allow duplicated genes).
+
+experiment.data:
+
+This should be a simple two column csv file, where first column are your sample names (these must be the same names as sample names in rnaseq.counts.csv file) and the second column is your experiment condition (i.e. control vs. treatment).
 
 ```
+
+There are two example files for rnaseq.counts and experiment.data that can be used as example file formats. A 2024 collection of MSigDB molecular sets can be found under the 'msigdb' folder, howver its best to always check and download the latest molecular sets from https://www.gsea-msigdb.org/gsea/msigdb/human/genesets.jsp.
