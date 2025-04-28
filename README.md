@@ -10,3 +10,18 @@ This script calculates pathway enrichment scores based on a list of differential
 Example:
 
 We are looking for enriched patwhays in treated explants. In this case, we have two classes 'control' and 'treated'. To see enriched genes and pathways in 'treated', set argument ref <- 'control' to ensure it works properly. These names are arbitrary and can reflect any kind of experiment, this is set by the user in the file 'colData.csv'. 
+
+```
+How to use:
+
+Simply open quick_gsea.R with Rstudio and run the code line by line.
+
+
+rnaseq.counts   <- read.csv(file.choose()) # Opens a dialogue to choose your RNA-seq expression data (counts)
+experiment.data <- read.csv(file.choose()) # Opens a dialogue to choose your mapping table (colData)
+pathways        <- file.choose()           # Opens a dialogue to choose which reference gene set collection you wish to compute enrichments for
+outfolder       <- "./"                    # Folder path in which to save your results
+
+
+
+```
