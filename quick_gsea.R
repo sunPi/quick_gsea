@@ -200,7 +200,8 @@ RunfGSEA           <- function(gene.list, pathways, design, verbose){
 
 # Load Libraries
 pkgs <- c("DESeq2", "tidyverse", "dplyr", "fgsea", "ggprism", 
-          "EnhancedVolcano", "org.Hs.eg.db", "AnnotationDbi", "stringr", "writexl")
+          "EnhancedVolcano", "org.Hs.eg.db", "AnnotationDbi", 
+          "stringr", "writexl", "here")
 suppressMessages(handleRequirements(pkgs))
 
 #----- Main -----
