@@ -200,7 +200,7 @@ RunfGSEA           <- function(gene.list, pathways, design, verbose){
 
 # Load Libraries
 pkgs <- c("DESeq2", "tidyverse", "dplyr", "fgsea", "ggprism", 
-          "EnhancedVolcano", "org.Hs.eg.db", "AnnotationDbi", "stringr")
+          "EnhancedVolcano", "org.Hs.eg.db", "AnnotationDbi", "stringr", "writexl")
 suppressMessages(handleRequirements(pkgs))
 
 #----- Main -----
@@ -229,9 +229,9 @@ fGSEA           <- RunfGSEA(DEG$gene.list, pathways, DEG$design, verbose) # fGSE
 
 if(serialise){ # Run this block of code to save all your results
   print(paste("Serialising results to...", outfolder))
-  writexl::write_xlsx(list(significant = DEG$significant,
-                           top10       = DEG$top.10,
-                           bot10       = DEG$bot.10),
+  write_xlsx(list(significant = DEG$significant,
+                  top10       = DEG$top.10,
+                  bot10       = DEG$bot.10),
                       here(outfolder,paste0(DEG$design$test, '_DEG.xlsx'))
   )
 
@@ -240,8 +240,8 @@ if(serialise){ # Run this block of code to save all your results
   print(DEG$volcano.p)
   dev.off()
 
-  writexl::write_xlsx(fGSEA$enrichments,
-                      here(outfolder,paste0(DEG$design$test, '_pathways.xlsx'))
+ write_xlsx(fGSEA$enrichments,
+            here(outfolder,paste0(DEG$design$test, '_pathways.xlsx'))
   )
 
   png(here(outfolder,paste0(DEG$design$test, '_patwhays.png')),
